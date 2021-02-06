@@ -282,7 +282,7 @@ lazy_static! {
         "volume_half" => " \u{e04d} ",
         "volume_muted" => " \u{e04e} \u{e04f} ",
         "xrandr" => " \u{e31e} ",
-        "shutdown" => " \u{f011} "
+        "shutdown" => " \u{e8ac} "
     };
 }
 
