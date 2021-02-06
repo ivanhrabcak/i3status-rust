@@ -9,12 +9,12 @@ use serde_derive::Deserialize;
 
 use crate::scheduler::Task;
 use crate::errors::*;
-use system_shutdown::shutdown;
+use system_shutdown::reboot;
 use crate::widget::I3BarWidget;
 use crate::input::{I3BarEvent, MouseButton};
 use crate::State;
 
-pub struct Shutdown {
+pub struct Restart {
     id: String,
     button: ButtonWidget,
     color: String,
@@ -27,15 +27,15 @@ pub struct Shutdown {
 }
 
 #[derive(Deserialize, Debug, Default, Clone)]
-pub struct ShutdownConfig {
-    #[serde(default = "ShutdownConfig::default_color")]
+pub struct RestartConfig {
+    #[serde(default = "RestartConfig::default_color")]
     color: String,
 
-    #[serde(default = "ShutdownConfig::default_color_overrides")]
+    #[serde(default = "RestartConfig::default_color_overrides")]
     pub color_overrides: Option<BTreeMap<String, String>>,
 }
 
-impl ShutdownConfig {
+impl RestartConfig {
     fn default_color() -> String {
         "red".to_owned()
     }
@@ -45,8 +45,8 @@ impl ShutdownConfig {
     }
 }
 
-impl ConfigBlock for Shutdown {
-    type Config = ShutdownConfig;
+impl ConfigBlock for Restart {
+    type Config = RestartConfig;
 
     fn new(
         block_config: Self::Config,
@@ -55,10 +55,10 @@ impl ConfigBlock for Shutdown {
     ) -> Result<Self> {
         let id = pseudo_uuid();
         let button = ButtonWidget::new(config.clone(), &id.to_owned())
-            .with_icon("shutdown");
+            .with_icon("restart");
 
     
-        Ok(Shutdown {
+        Ok(Restart {
             id,
             button,
             color: block_config.color,
@@ -68,7 +68,7 @@ impl ConfigBlock for Shutdown {
     }
 }
 
-impl Block for Shutdown {
+impl Block for Restart {
     fn update(&mut self) -> Result<Option<Update>> {
         if self.color == "red" {
             self.button.set_state(State::Critical);
@@ -92,9 +92,9 @@ impl Block for Shutdown {
     fn click(&mut self, event: &I3BarEvent) -> Result<()> {
         match event.button {
             MouseButton::Left => {
-                match shutdown() {
+                match reboot() {
                     Ok(_) => (),
-                    Err(err) => self.button.set_text(format!("failed to shutdown: {}", err))               
+                    Err(err) => self.button.set_text(format!("failed to restart: {}", err))               
                 }
             }
 

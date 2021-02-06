@@ -75,7 +75,8 @@ lazy_static! {
         "weather_sun" => " SUNNY ",
         "weather_thunder" => " STORM ",
         "xrandr" => " SCREEN ",
-        "shutdown" => " SHUTDOWN "
+        "shutdown" => " SHUTDOWN ",
+        "restart" => " RESTART "
     };
 
     // FontAwesome 4
@@ -153,7 +154,8 @@ lazy_static! {
         "weather_sun" => " \u{f185} ",
         "weather_thunder" => " \u{f0e7} ",
         "xrandr" => " \u{f26c} ",
-        "shutdown" => " \u{f011} "
+        "shutdown" => " \u{f011} ",
+        "restart" => " \u{f110} " 
     };
 
     // FontAwesome 5
@@ -230,7 +232,8 @@ lazy_static! {
         "weather_sun" => " \u{f185} ",
         "weather_thunder" => " \u{f0e7} ",
         "xrandr" => " \u{f26c} ",
-        "shutdown" => " \u{f011} "
+        "shutdown" => " \u{f011} ",
+        "restart" => " \u{f110} "
     };
 
     pub static ref MATERIAL: Map<String, String> = map_to_owned! {
@@ -282,7 +285,8 @@ lazy_static! {
         "volume_half" => " \u{e04d} ",
         "volume_muted" => " \u{e04e} \u{e04f} ",
         "xrandr" => " \u{e31e} ",
-        "shutdown" => " \u{e8ac} "
+        "shutdown" => " \u{e8ac} ",
+        "restart" => " \u{e86a} "
     };
 }
 
