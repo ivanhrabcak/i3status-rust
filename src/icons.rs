@@ -74,7 +74,8 @@ lazy_static! {
         "weather_snow" => " SNOW ",
         "weather_sun" => " SUNNY ",
         "weather_thunder" => " STORM ",
-        "xrandr" => " SCREEN "
+        "xrandr" => " SCREEN ",
+        "shutdown" => " SHUTDOWN "
     };
 
     // FontAwesome 4
@@ -151,7 +152,8 @@ lazy_static! {
         "weather_snow" => " \u{f2dc} ",
         "weather_sun" => " \u{f185} ",
         "weather_thunder" => " \u{f0e7} ",
-        "xrandr" => " \u{f26c} "
+        "xrandr" => " \u{f26c} ",
+        "shutdown" => " \u{f011} "
     };
 
     // FontAwesome 5
@@ -227,7 +229,8 @@ lazy_static! {
         "weather_snow" => " \u{f2dc} ",
         "weather_sun" => " \u{f185} ",
         "weather_thunder" => " \u{f0e7} ",
-        "xrandr" => " \u{f26c} "
+        "xrandr" => " \u{f26c} ",
+        "shutdown" => " \u{f011} "
     };
 
     pub static ref MATERIAL: Map<String, String> = map_to_owned! {
@@ -278,7 +281,8 @@ lazy_static! {
         "volume_full" => " \u{e050} ",
         "volume_half" => " \u{e04d} ",
         "volume_muted" => " \u{e04e} \u{e04f} ",
-        "xrandr" => " \u{e31e} "
+        "xrandr" => " \u{e31e} ",
+        "shutdown" => " \u{f011} "
     };
 }
 
