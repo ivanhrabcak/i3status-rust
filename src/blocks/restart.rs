@@ -90,6 +90,10 @@ impl Block for Restart {
     }
 
     fn click(&mut self, event: &I3BarEvent) -> Result<()> {
+        if !event.matches_name(self.id()) {
+            return Ok(());
+        }
+
         match event.button {
             MouseButton::Left => {
                 match reboot() {
