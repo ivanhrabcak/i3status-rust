@@ -1,3 +1,6 @@
+# What does this fork add?
+A shutdown and restart button.
+
 # i3status-rust
 
 ![demo1](https://raw.githubusercontent.com/greshake/i3status-rust/master/img/example_bar.png)
